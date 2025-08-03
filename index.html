@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Management Portal</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="MITE_Logo.jpg" alt="College Logo">
+        <div class="portal">IDEA MANAGEMENT PORTAL</div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="news-ticker">
+            <span>Ideation 5.1 is here !!</span>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about-us" onclick="scrollToSection('about-us')">About Us</a></li>
+            <li><a href="#news" onclick="scrollToSection('news')">News</a></li>
+            <li><a href="login.html" id="loginLink">Login</a></li>
+            <li><a href="signup.html" id="signupLink">Signup</a></li>
+            <li><a href="#contact-us" onclick="scrollToSection('contact-us')">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner -->
+    <div class="banner" id="home">
+        <h>"Great startups don’t happen by accident; they are a result of great ideas turned into action."</h>
+        <h3><u>"MANGALORE INSTITUTE OF TECHNOLOGY & ENGINEERING"</u></h3>
+        <img src="mite-home-slider-1.jpg" alt="Banner Image">
+    </div>
+
+    <!-- About Us -->
+    <div class="content" id="about-us">
+        <h1>About Us</h1>
+        <p><span>Welcome to the Idea Management Portal of MITE<br>
+
+            At Mangalore Institute of Technology and Engineering (MITE), we believe in the power of innovation and collaboration. The Idea Management Portal is designed to be a platform where creativity meets opportunity. Our goal is to empower students to share their innovative ideas, receive constructive feedback from faculty, and work together to turn those ideas into reality.The Idea Management Portal is more than just a tool; it’s a step towards fostering a culture of innovation that benefits both students and the institution. By encouraging idea-sharing and teamwork, we aim to create a lasting impact on the growth and development of MITE.<br>  
+        
+           <h3> <span style="color: grey;">Why This Portal?</span> </h3><br>
+            The Idea Management Portal offers several features that make it a unique and valuable tool for students and faculty alike:<br> 
+            1. Centralized Idea Repository: All student ideas are stored in one place, making it easy to track and review them.<br>  
+            2. Efficient Feedback System: Faculty can provide constructive feedback directly through the portal, helping students refine their ideas.<br>  
+            3. Collaboration Opportunities: Students can form groups, share ideas, and work together across branches to develop innovative solutions.<br>  
+            4. Progress Tracking: Students can review their idea submissions, monitor updates, and implement changes based on feedback.<br> 
+            5. Innovation Showcase: Outstanding ideas can be highlighted and presented for recognition within the institution or beyond.<br>  
+            6. User-Friendly Design: The portal ensures smooth navigation, making it easy for users to submit, view, and interact with ideas.<br>   
+            7. Encourages Growth: By promoting innovation and teamwork, the portal helps students develop critical thinking and problem-solving skills.</span>p><br></span></p>
+    </div>
+
+    <!-- News and Events -->
+    <div class="columns" id="news">
+        <div class="column">
+            <h3>Latest News</h3>
+            <div class="scroll-content">
+                <div>
+                    <p>10 teams got funded in ideation</p>
+                    <p>EC got first place in IDEATION</p>
+                    <p>X coders secured second place</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h3>Upcoming Events</h3>
+            <div class="scroll-content">
+                <div>
+                    <p>IDEATHON 5.0 - Dec 5</p>
+                    <p>Tech summit - Dec 10</p>
+                    <p>Project Workshop - Dec 15</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery -->
+    <div class="content">
+        <h2>MILESTONES</h2>
+    </div>
+    <div class="carousel">
+        <button class="carousel-btn left">&#8249;</button>
+        <div class="carousel-track">
+            <!-- Your carousel slides here -->
+            <div class="carousel-slide">
+                <img src="image5.jpg" alt="Achievement 5">
+                <img src="image6.jpg" alt="Achievement 6">
+            </div>
+    
+            <div class="carousel-slide">
+                <img src="2.jpg" alt="Achievement 1">
+                <img src="ATV-2016.jpg" alt="Achievement 2">
+            </div>
+            <div class="carousel-slide">
+                <img src="download.jpg" alt="Achievement 3">
+                <img src="MITE_Grassroot-2024_Web-1200x600.jpg" alt="Achievement 4">
+            </div>
+            <div class="carousel-slide">
+                <img src="mite-avishkar-award-800x600.jpg" alt="Achievement 5">
+                <img src="mite-national-hybrid-vehicle-champion.jpg" alt="Achievement 6">
+            </div>
+    
+            <!-- Clone of the first slide for infinite looping -->
+            <div class="carousel-slide">
+                <img src="image1.jpg" alt="Achievement 1">
+                <img src="image2.jpg" alt="Achievement 2">
+            </div>
+        </div>
+        <button class="carousel-btn right">&#8250;</button>
+    </div>
+
+    <h1>FAQ - Idea Management Portal</h1>
+    <div class="faq-container">
+        <!-- Your FAQ content here -->
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span>How can students register on the portal?</span>
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Students can register by filling out the registration form with their personal and academic details. An email verification process is required to complete the registration.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span>How can faculty register?</span>
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Faculty members need to provide their institutional email ID and credentials for verification to register on the portal.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span>Can students submit ideas individually?</span>
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Yes, students can submit their ideas individually. The portal allows submissions with or without team members.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span>How does team member validation work?</span>
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Team members are validated through their student IDs and registered accounts. All members must accept the invitation to join a team before submission.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span>How are submission deadlines managed?</span>
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Submission deadlines are displayed on the portal dashboard. Reminders are sent via email as the deadline approaches.
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="title">INCUBATION & START-UP'S</div>
+        <div class="cards">
+            <!-- Your cards content here -->
+            <div class="card">
+                <h2>3.06 Crores</h2>
+                <p>from Government of Karnataka</p>
+              </div>
+              <div class="card">
+                <h2>65 Lakhs</h2>
+                <p>from Government of India</p>
+              </div>
+              <div class="card">
+                <h2>20 Ideas</h2>
+                <p>Seed funded on campus</p>
+              </div>
+              <div class="card">
+                <h2>10 Startups</h2>
+                <p>functional on campus</p>
+              </div>
+              <div class="card">
+                <h2>10000 sq.ft.</h2>
+                <p>state-of-the-art Incubation Center</p>
+              </div>
+        </div>
+    </div>
+
+    <!-- Contact Us -->
+    <footer>
+    <div class="content" id="contact-us">
+        <h2>Contact Us</h2>
+        <p>Address: Badaga Mijar,Near Moodabidre,Mangalore Tq,DK Dist,Karnataka-574225</p>
+        <p>Phone: +91 8258 262695/96/97</p[_{{{CITATION{{{_1{](https://github.com/sarthi42/Doctor-Portal/tree/d35c5baa34f05d3101d979ae83bf5e8a7c939ab9/Doc-apointment-sys%2Fprofile.php)[_{{{CITATION{{{_2{](https://github.com/lashka12/Travelo-Website/tree/48034500ebd76ca2eabdcd20eae49a1d1a47fded/Travelo%2FSystem%2Findex.php)[_{{{CITATION{{{_3{](https://github.com/edsyang/blog/tree/2ce48a2788db8d4f4b5f5f5dc8c388799ea5c0c2/docs%2Fcourse%2Fvue%2F13-Vue.js-D.part%20four.md)
+            <p>Phone: +91 8258 262695/96/97</p>
+            <p>Email: info@mite.ac.in</p>
+        </div>
+        
+        <!-- Footer -->
+            <p>&copy; 2024 Mangalore Institute of Technology & Engineering. All rights reserved.</p>
+            <p>Follow us on <a href="https://x.com/mite_mangalore">Twitter</a> | <a href="https://m.facebook.com/MITEedu/">Facebook</a> | <a href="https://www.instagram.com/miteedu?igsh=ZXBrejl6andxaDB6">Instagram</a></p>
+        </footer>
+        
+        <!-- Login Modal -->
+        <div class="container">
+            <h2>Login</h2>
+            <form action="login.php" method="post">
+                <label for="username_or_email">Username/Email:</label>
+                <input type="text" id="username_or_email" name="username_or_email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="signup.html">Signup</a></p>
+        </div>
+        
+        <!-- Signup Modal -->
+        <div class="container">
+            <h2>Signup</h2>
+            <select id="role" onchange="showForm()">
+                <option value="">-- Select Role --</option>
+                <option value="student">Student</option>
+                <option value="faculty">Faculty</option>
+            </select>
+    
+            <div id="studentForm" class="hidden">
+                <form id="studentSignup" action="signup.php" method="post">
+                    <input type="hidden" name="role" value="student">
+                    <label for="usn">USN:</label>
+                    <input type="text" id="usn" name="usn" required>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="year">Year:</label>
+                    <select id="year" name="year" required>
+                        <option value="">-- Select Year --</option>
+                        <option value="1st">1st</option>
+                        <option value="2nd">2nd</option>
+                        <option value="3rd">3rd</option>
+                        <option value="4th">4th</option>
+                    </select>
+                    <label for="branch">Branch:</label>
+                    <select id="branch" name="branch" required>
+                        <option value="">-- Select Branch --</option>
+                        <option value="AERO">AERO</option>
+                        <option value="AIML">AIML</option>
+                        <option value="CIVIL">CIVIL</option>
+                        <option value="CSE">CSE</option>
+                        <option value="CS-AIML">CS-AIML</option>
+                        <option value="CS-IoT">CS-IoT</option>
+                        <option value="ECE">ECE</option>
+                        <option value="ISE">ISE</option>
+                        <option value="MECH">MECH</option>
+                    </select>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Signup</button>
+                </form>
+            </div>
+    
+            <div id="facultyForm" class="hidden">
+                <form id="facultySignup" action="signup.php" method="post">
+                    <input type="hidden" name="role" value="faculty">
+                    <label for="faculty_id">Faculty ID:</label>
+                    <input type="text" id="faculty_id" name="faculty_id" required>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="department">Department:</label>
+                    <select id="department" name="department" required>
+                        <option value="">-- Select Department --</option>
+                        <option value="AERO">AERO</option>
+                        <option value="AIML">AIML</option>
+                        <option value="CIVIL">CIVIL</option>
+                        <option value="CSE">CSE</option>
+                        <option value="CS-AIML">CS-AIML</option>
+                        <option value="CS-IoT">CS-IoT</option>
+                        <option value="ECE">ECE</option>
+                        <option value="ISE">ISE</option>
+                        <option value="MECH">MECH</option>
+                    </select>
+                    <label for="domain">Domain:</label>
+                    <select id="domain" name="domain" required>
+                        <option value="">-- Select Domain --</option>
+                        <option value="AI">AI</option>
+                        <option value="Blockchain">Blockchain</option>
+                        <option value="Cyber security">Cyber security</option>
+                        <option value="Deep learning">Deep learning</option>
+                        <option value="IoT">IoT</option>
+                        <option value="Machine learning">Machine learning</option>
+                        <option value="Quantum computing">Quantum computing</option>
+                    </select>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Signup</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Scripts -->
+        <script src="index.js"></script>
+        <script src="login.js"></script>
+        <script src="signup.js"></script>
+        </body>
+        </html>
+        

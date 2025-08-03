@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idea Management Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f4f5;
+        }
+        header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: hwb(0 100% 0%);
+      color: #ba5858;
+      padding: 10px 20px;
+    }
+    
+    header img {
+      height: 50px;
+    }
+    
+    .portal {
+      flex: 1; 
+      text-align: center; 
+      font-size: 24px;
+      margin: 0;
+    }
+        
+        .news-ticker {
+            flex: 1;
+            margin-left: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            color: rgb(240, 241, 245);
+        }
+
+        .news-ticker span {
+            display: inline-block;
+            animation: scroll 7s linear infinite;
+            
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        nav {
+            background-color: #061732;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: right;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: rgb(240, 241, 245);
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+
+        nav ul li a:hover {
+            background-color: #003d80;
+            border-radius: 5px;
+        }
+
+        .banner {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+        }
+
+        .content {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .columns {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .column {
+            flex: 1;
+            margin: 0 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .column h3 {
+            margin-top: 0;
+            text-align: center;
+            background-color: #0056b3;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .scroll-content {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .scroll-content div {
+            position: absolute;
+            width: 100%;
+            animation: scroll-content 7s linear infinite;
+        }
+
+        @keyframes scroll-content {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(-100%);
+            }
+        }
+
+        /* .gallery {
+            margin: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .gallery img {
+            flex: 3;
+            width: 10%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        } */
+       
+        .carousel {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: white;
+    border: 1px solid hwb(0 96% 1%);
+    border-radius: 8px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    display: flex;
+    justify-content: space-between;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+}
+
+.carousel-slide img {
+    width: 48%;
+    max-height: 300px; /* Set the maximum height for the images */
+    border-radius: 8px;
+    object-fit: cover; /* Ensures images are cropped properly to fit the dimensions */
+    display: block;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-btn.left {
+    left: 10px;
+}
+
+.carousel-btn.right {
+    right: 10px;
+}
+.slider-container {
+  padding: 20px;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.members {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.member {
+  text-align: center;
+  width: 200px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.member img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.member p {
+  font-size: 1rem;
+  margin: 0;
+  font-weight: bold;
+  color: #555;
+}
+.containerr {
+            margin: 50px auto;
+            width: 80%;
+            max-width: 600px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .btn.submit-idea {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn.submit-idea:hover {
+            background-color: #0056b3;
+        }
+
+        .btn.join-team {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn.join-team:hover {
+            background-color: #218838;
+        }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0ca2f8;
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      flex: 1;
+      max-width: 200px;
+      text-align: center;
+    }
+
+    .card h2 {
+      font-size: 24px;
+      color: #2a52be;
+      margin: 0;
+    }
+
+    .card p {
+      font-size: 16px;
+      color: #333333;
+      margin-top: 5px;
+    }
+        footer {
+            background-color: #00274d;
+            color: white;
+            text-align: center;
+            width: 100%;
+            padding:  10px;
+        }
+
+        footer a {
+            color: #00acee;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .faq-container {
+            max-width:800px;
+            margin: 0 auto;
+        }
+
+        .faq {
+            border-bottom: 1px solid brown#ccc;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .faq-question {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fdfdfd;
+            border-left: 3px solid #007BFF;
+            border-radius: 3px;
+        }
+
+        .arrow {
+            transition: transform 0.2s;
+        }
+
+        .arrow.open {
+            transform: rotate(180deg);
+        }
+        .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="C:\xampp\htdocs\frontend\MITE_Logo.jpg" alt="College Logo">
+        <div class="portal">IDEA MANAGEMENT PORTAL</div>
+        <!-- <div class="news-ticker">
+            <span>Ideation 5.1 is here !!</span>
+        </div> -->
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <!-- <h>updates</h> -->
+        <div class="news-ticker">
+            <span>Ideation 5.1 is here !!</span>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about-us" onclick="scrollToSection('about-us')">About Us</a></li>
+            <li><a href="#news" onclick="scrollToSection('news')">News</a></li>
+            <!-- <li><a href="C:\xampp\htdocs\frontend\login student\student login.html">Login</a></li>
+            <li><a href="C:\xampp\htdocs\frontend\Login faculty\faculty login.html">Faculty</a></li> -->
+            <li><a href="C:\xampp\htdocs\idea_management\student_dashboard.html">Dashboard</a></li>
+           <!-- <li><a href="profile.php">View Profile</a></li> -->
+              
+            <li><a href="#contact-us" onclick="scrollToSection('contact-us')">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner -->
+    <div class="banner" id="home">
+        <h>"Great startups don’t happen by accident; they are a result of great ideas turned into action."</h>
+        <h3><u>"MANGALORE INSTITUTE OF TECHNOLOGY & ENGINEERING"</u></h3>
+        <img src="C:\xampp\htdocs\frontend\mite-home-slider-1.jpg">
+        
+    </div>
+
+    <!-- About Us -->
+    <div class="content" id="about-us">
+        <h1>About Us</h1>
+        <p><span>Welcome to the Idea Management Portal of MITE<br>
+
+            At Mangalore Institute of Technology and Engineering (MITE), we believe in the power of innovation and collaboration. The Idea Management Portal is designed to be a platform where creativity meets opportunity. Our goal is to empower students to share their innovative ideas, receive constructive feedback from faculty, and work together to turn those ideas into reality.The Idea Management Portal is more than just a tool; it’s a step towards fostering a culture of innovation that benefits both students and the institution. By encouraging idea-sharing and teamwork, we aim to create a lasting impact on the growth and development of MITE.<br>  
+        
+           <h3> <span style="color: grey;">Why This Portal?</span> </h3><br>
+            The Idea Management Portal offers several features that make it a unique and valuable tool for students and faculty alike:<br> 
+            1. Centralized Idea Repository: All student ideas are stored in one place, making it easy to track and review them.<br>  
+            2. Efficient Feedback System: Faculty can provide constructive feedback directly through the portal, helping students refine their ideas.<br>  
+            3. Collaboration Opportunities: Students can form groups, share ideas, and work together across branches to develop innovative solutions.<br>  
+            4. Progress Tracking: Students can review their idea submissions, monitor updates, and implement changes based on feedback.<br> 
+            5. Innovation Showcase: Outstanding ideas can be highlighted and presented for recognition within the institution or beyond.<br>  
+            6. User-Friendly Design: The portal ensures smooth navigation, making it easy for users to submit, view, and interact with ideas.<br>   
+            7. Encourages Growth: By promoting innovation and teamwork, the portal helps students develop critical thinking and problem-solving skills.</span>p><br></span></p>
+    </div>
+    <!-- <div class="containerr">
+        <h1>Submit & Collaboration</h1>
+
+        Submit Idea Button with link to an external website
+        <a href="C:\xampp\htdocs\frontend\only submit\submit_idea.html" target="_blank">
+            <button class="btn submit-idea">SUBMIT</button>
+        </a>
+    </div> -->
+
+    <!-- News and Events -->
+    <div class="columns" id="news">
+        <div class="column">
+            <h3>Latest News</h3>
+            <div class="scroll-content">
+                <div>
+                    <p>10 teams got funded in ideation </p>
+                    <p>EC got first place in IDEATION </p>
+                    <p>X coders secured second place</p>
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <h3>Upcoming Events</h3>
+            <div class="scroll-content">
+                <div>
+                    <p>IDEATHON 5.0 - Dec 5</p>
+                    <p>Tech summit - Dec 10</p>
+                    <p>Project Workshop - Dec 15</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="slider-container">
+        <h1>Organizing Members</h1>
+        <p>The initiative is guided by a team of experienced and dedicated organizing members who are instrumental in driving its success. They play a key role in fostering innovation, providing mentorship, and facilitating collaboration among students and faculty. Their leadership ensures a structured approach to idea development and evaluation, creating a platform that encourages creativity and critical thinking. With their diverse expertise and insights, they help bridge the gap between theoretical knowledge and practical application, supporting both institutional growth and the holistic development of students. Their commitment to excellence fosters an environment where students can transform ideas into impactful solutions for real-world challenges.</p>
+        <div class="members">
+          <div class="member">
+            <img src="C:\xampp\htdocs\frontend\1516959225649.jpg" alt="Mr. Narendra U P">
+            <p><h3>Mr. Narendra U P</h3><br> Associate Professor & Director</p>
+          </div>
+          <div class="member">
+            <img src="C:\xampp\htdocs\frontend\MECH_Swaroop.jpg" alt="Mr. Swaroop">
+            <p><h3>Mr. Swaroop</h3><br>Assistant Professor</p>
+          </div>
+          <div class="member">
+            <img src="C:\xampp\htdocs\frontend\h-m-ramalingam.jpg" alt="Dr. Ramalingam H M">
+            <p><h3>Dr. Ramalingam H M</h3><br> Associate Professor</p>
+          </div>
+        </div>
+      </div> -->
+    <!-- Gallery -->
+    <div class="content">
+        <h2>MILESTONES</h2>
+        <!-- <div class="achievements">
+            <img src="C:\Users\Hp\Desktop\Diagrams\project competition.jpg">
+            <!-- <img src="C:\Users\Hp\Desktop\Diagrams\mite-national-hybrid-vehicle-champion.jpg"> -->
+            <!-- <img src="C:\Users\Hp\Desktop\Diagrams\project competition.jpg"> -->
+            <!-- <img src="C:\Users\ADMIN\Desktop\My College\images\04.png" alt="Gallery Image 4">
+            <img src="C:\Users\ADMIN\Desktop\My College\images\05.png" alt="Gallery Image 5">
+            <img src="C:\Users\ADMIN\Desktop\My College\images\06.jpg" alt="Gallery Image 6"> -->
+        </div> -->
+        <div class="carousel">
+            <button class="carousel-btn left">&#8249;</button>
+            <div class="carousel-track">
+                <!-- Clone of the last slide for infinite looping -->
+                <div class="carousel-slide">
+                    <img src="image5.jpg" alt="Achievement 5">
+                    <img src="image6.jpg" alt="Achievement 6">
+                </div>
+        
+                <div class="carousel-slide">
+                    <img src="C:\xampp\htdocs\frontend\2.jpg" alt="Achievement 1">
+                    <img src="C:\xampp\htdocs\frontend\ATV-2016.jpg" alt="Achievement 2">
+                </div>
+                <div class="carousel-slide">
+                    <img src="C:\xampp\htdocs\frontend\download.jpg" alt="Achievement 3">
+                    <img src="C:\xampp\htdocs\frontend\MITE_Grassroot-2024_Web-1200x600.jpg" alt="Achievement 4">
+                </div>
+                <div class="carousel-slide">
+                    <img src="C:\xampp\htdocs\frontend\mite-avishkar-award-800x600.jpg" alt="Achievement 5">
+                    <img src="C:\xampp\htdocs\frontend\mite-national-hybrid-vehicle-champion.jpg" alt="Achievement 6">
+                </div>
+        
+                <!-- Clone of the first slide for infinite looping -->
+                <div class="carousel-slide">
+                    <img src="image1.jpg" alt="Achievement 1">
+                    <img src="image2.jpg" alt="Achievement 2">
+                </div>
+            </div>
+            <button class="carousel-btn right">&#8250;</button>
+        </div>
+        
+        <h1>FAQ - Idea Management Portal</h1>
+    <div class="faq-container">
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span>How can students register on the portal?</span>
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Students can register by filling out the registration form with their personal and academic details. An email verification process is required to complete the registration.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span>How can faculty register?</span>
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Faculty members need to provide their institutional email ID and credentials for verification to register on the portal.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span>Can students submit ideas individually?</span>
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Yes, students can submit their ideas individually. The portal allows submissions with or without team members.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span>How does team member validation work?</span>
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Team members are validated through their student IDs and registered accounts. All members must accept the invitation to join a team before submission.
+            </div>
+        </div>
+
+        <div class="faq">
+            <div class="faq-question" onclick="toggleAnswer(this)">
+                <span>How are submission deadlines managed?</span>
+                <span class="arrow">&#9660;</span>
+            </div>
+            <div class="faq-answer">
+                Submission deadlines are displayed on the portal dashboard. Reminders are sent via email as the deadline approaches.
+            </div>
+        </div>
+    </div>
+
+        
+    <div class="container">
+        <div class="title">INCUBATION & START-UP'S</div>
+        <div class="cards">
+          <div class="card">
+            <h2>3.06 Crores</h2>
+            <p>from Government of Karnataka</p>
+          </div>
+          <div class="card">
+            <h2>65 Lakhs</h2>
+            <p>from Government of India</p>
+          </div>
+          <div class="card">
+            <h2>20 Ideas</h2>
+            <p>Seed funded on campus</p>
+          </div>
+          <div class="card">
+            <h2>10 Startups</h2>
+            <p>functional on campus</p>
+          </div>
+          <div class="card">
+            <h2>10000 sq.ft.</h2>
+            <p>state-of-the-art Incubation Center</p>
+          </div>
+    <footer>
+    <!-- Contact Us -->
+    <div class="content" id="contact-us">
+        <h2>Contact Us</h2>
+        <p>Address: Badaga Mijar,Near Moodabidre,Mangalore Tq,DK Dist,Karnataka-574225</p>
+        <p>Phone: +91 8258 262695/96/97</p>
+        <p>Email: info@mite.ac.in</p>
+    </div>
+
+    <!-- Footer -->
+    <!-- <footer> -->
+        <p>&copy; 2024 Mangalore Institute of Technology & Engineering. All rights reserved.</p>
+        <p>Follow us on <a href="https://x.com/mite_mangalore">Twitter</a> | <a href="https://m.facebook.com/MITEedu/">Facebook</a> | <a href="https://www.instagram.com/miteedu?igsh=ZXBrejl6andxaDB6">Instagram</a></p>
+    </footer>
+   
+    
+    <script>
+       const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextButton = document.querySelector('.carousel-btn.right');
+const prevButton = document.querySelector('.carousel-btn.left');
+
+let currentIndex = 1; // Start on the first actual slide (not the clone)
+const slideCount = slides.length;
+const slideWidth = slides[0].getBoundingClientRect().width;
+
+// Position track so the first real slide is visible
+track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+// Function to update the carousel position
+function updateCarousel() {
+    track.style.transition = 'transform 0.5s ease-in-out';
+    track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+}
+
+// Infinite loop logic for the next slide
+function moveToNextSlide() {
+    currentIndex++;
+    updateCarousel();
+
+    // If at the last clone, jump back to the first real slide
+    if (currentIndex === slideCount - 1) {
+        setTimeout(() => {
+            track.style.transition = 'none'; // Disable animation for instant jump
+            currentIndex = 1; // Go back to the first real slide
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }, 500); // Match the transition duration
+    }
+}
+
+// Infinite loop logic for the previous slide
+function moveToPrevSlide() {
+    currentIndex--;
+    updateCarousel();
+
+    // If at the first clone, jump back to the last real slide
+    if (currentIndex === 0) {
+        setTimeout(() => {
+            track.style.transition = 'none'; // Disable animation for instant jump
+            currentIndex = slideCount - 2; // Go back to the last real slide
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }, 500); // Match the transition duration
+    }
+}
+
+// Event listeners for buttons
+nextButton.addEventListener('click', () => {
+    clearInterval(autoSlide); // Pause auto-sliding when manual navigation happens
+    moveToNextSlide();
+    autoSlide = setInterval(moveToNextSlide, 3000); // Restart auto-sliding
+});
+
+prevButton.addEventListener('click', () => {
+    clearInterval(autoSlide); // Pause auto-sliding when manual navigation happens
+    moveToPrevSlide();
+    autoSlide = setInterval(moveToNextSlide, 3000); // Restart auto-sliding
+});
+
+// Automatically move to the next slide every 3 seconds
+let autoSlide = setInterval(moveToNextSlide, 3000);
+
+// Adjust carousel position on window resize
+window.addEventListener('resize', () => {
+    track.style.transition = 'none'; // Disable animation during resize
+    const newSlideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = `translateX(-${currentIndex * newSlideWidth}px)`;
+});
+
+function toggleAnswer(questionElement) {
+            const answer = questionElement.nextElementSibling;
+            const arrow = questionElement.querySelector('.arrow');
+
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                arrow.classList.remove('open');
+            } else {
+                answer.style.display = "block";
+                arrow.classList.add('open');
+            }
+        }
+ window.addEventListener('resize', updateCarousel);
+        function scrollToSection(id) {
+            const section = document.getElementById(id);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+      
+    </script>
+</body>
+</html>

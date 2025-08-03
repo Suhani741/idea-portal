@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Home Page</title>
+    <link rel="stylesheet" href="student_home.css">
+</head>
+<body>
+    <header>
+        <img src="MITE_Logo.jpg" alt="College Logo">
+        <div class="portal">IDEA MANAGEMENT PORTAL</div>
+    </header>
+
+    <nav class="menu">
+        <a href="student_dashboard.html">Home</a>
+        <a href="student_home.html">Submit the Idea</a>
+        <a href="student_profile.php">View Profile</a>
+        <a href="logout.php">Logout</a>
+    </nav>
+
+    <section id="idea-form">
+        <h2>Submit Idea</h2>
+        <form id="submitIdeaForm" action="student_home.php" method="POST">
+            <label for="title">Title of the Idea:</label>
+            <input type="text" id="title" name="title" placeholder="Enter the idea title" required>
+
+            <label for="team_leader">Team Leader (Compulsory):</label>
+            <select name="team_leader" id="team_leader" required>
+                <option value="">Select Team Leader</option>
+                <?php
+                    while ($student = $studentsResult->fetch_assoc()) {
+                        echo "<option value='" . $student['usn'] . "'>" . $student['usn'] . " - " . $student['username'] . "</option>";
+                    }
+                ?>
+            </select>
+
+            <label for="team_member1">Team Member 1 (Optional):</label>
+            <select name="team_member1" id="team_member1">
+                <option value="">Select Team Member</option>
+                <?php
+                    $studentsResult->data_seek(0); // Reset pointer
+                    while ($student = $studentsResult->fetch_assoc()) {
+                        echo "<option value='" . $student['usn'] . "'>" . $student['usn'] . " - " . $student['username'] . "</option>";
+                    }
+                ?>
+            </select>
+
+            <label for="team_member2">Team Member 2 (Optional):</label>
+            <select name="team_member2" id="team_member2">
+                <option value="">Select Team Member</option>
+                <?php
+                    $studentsResult->data_seek(0); // Reset pointer
+                    while ($student = $studentsResult->fetch_assoc()) {
+                        echo "<option value='" . $student['usn'] . "'>" . $student['usn'] . " - " . $student['username'] . "</option>";
+                    }
+                ?>
+            </select>
+
+            <label for="team_member3">Team Member 3 (Optional):</label>
+            <select name="team_member3" id="team_member3">
+                <option value="">Select Team Member</option>
+                <?php
+                    $studentsResult->data_seek(0); // Reset pointer
+                    while ($student = $studentsResult->fetch_assoc()) {
+                        echo "<option value='" . $student['usn'] . "'>" . $student['usn'] . " - " . $student['username'] . "</option>";
+                    }
+                ?>
+            </select>
+
+            <label for="domain">Select Domain:</label>
+            <select name="domain" id="domain" required>
+                <option value="">Select Domain</option>
+                <?php
+                    while ($domain = $domainsResult->fetch_assoc()) {
+                        echo "<option value='" . $domain['domain_name'] . "'>" . $domain['domain_name'] . "</option>";
+                    }
+                ?>
+            </select>
+
+            <label for="faculty">Select Faculty:</label>
+            <select name="faculty" id="faculty" required>
+                <option value="">Select Faculty</option>
+                <!-- Dynamic faculty options will be added by JS -->
+            </select>
+
+            <label for="abstract">Abstract:</label>
+            <textarea id="abstract" name="abstract" maxlength="60" placeholder="Describe your idea in 60 words" required></textarea>
+
+            <button type="submit">Submit Idea</button>
+        </form>
+    </section>
+
+    <script src="student_home.js"></script>
+</body>
+</html>

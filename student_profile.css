@@ -1,0 +1,98 @@
+/* General reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #004f91;
+    padding: 15px 20px;
+    text-align: center;
+    color: white;
+}
+
+header img {
+    width: 50px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.portal {
+    font-size: 24px;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 15px;
+}
+
+nav.menu {
+    background-color: #004f91;
+    padding: 10px;
+    text-align: center;
+}
+
+nav.menu a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+nav.menu a:hover {
+    background-color: #0073e6;
+}
+
+#profile-info {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+#profile-info h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#profile-info p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+#profile-info form {
+    margin-top: 20px;
+}
+
+#profile-info form label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+#profile-info form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#profile-info form button {
+    background-color: #004f91;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#profile-info form button:hover {
+    background-color: #0073e6;
+}

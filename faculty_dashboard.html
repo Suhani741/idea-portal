@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="faculty_dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="MITE_Logo.jpg" alt="College Logo">
+        <div class="portal">IDEA MANAGEMENT PORTAL</div>
+    </header>
+
+    <!-- Menu -->
+    <nav class="menu">
+        <a href="faculty_dashboard_home.html">Home</a>
+        <a href="faculty_dashboard_profile.php">View Profile</a>
+        <a href="faculty_dashboard_logout.php">Logout</a>
+    </nav>
+
+    <div class="content">
+        <!-- Team Details Section -->
+        <div class="section">
+            <h2>Team Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Team ID</th>
+                        <th>Team Leader</th>
+                        <th>Team Member 1</th>
+                        <th>Team Member 2</th>
+                        <th>Team Member 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        // Include the PHP logic for fetching team details
+                        include 'faculty_dashboard.php';
+                        fetchTeamDetails();
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Domain Details Section -->
+        <div class="section">
+            <h2>Domain Details</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Domain Name</th>
+                        <th>Faculty Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        // Include the PHP logic for fetching domain details
+                        fetchDomainDetails();
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Idea Submission Section -->
+        <div class="section">
+            <h2>Idea Submissions</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Idea Title</th>
+                        <th>Abstract</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                        // Include the PHP logic for fetching submitted ideas
+                        fetchIdeaSubmissions();
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="content" id="contact-us">
+            <h2>Contact Us</h2>
+            <p>Address: Badaga Mijar, Near Moodabidre, Mangalore Tq, DK Dist, Karnataka-574225</p>
+            <p>Phone: +91 8258 262695/96/97</p>
+            <p>Email: info@mite.ac.in</p>
+        </div>
+        <p>&copy; 2024 Mangalore Institute of Technology & Engineering. All rights reserved.</p>
+    </footer>
+
+    <script src="faculty_dashboard.js"></script>
+</body>
+</html>
